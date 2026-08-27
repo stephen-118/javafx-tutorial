@@ -1,35 +1,36 @@
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 public class DialogBox extends HBox {
 
-    private static final double DISPLAY_PICTURE_SIZE = 100.0;
+    @FXML
+    private Label dialog;
 
-    private final Label text;
-    private final ImageView displayPicture;
+    @FXML
+    private ImageView displayPicture;
 
     public DialogBox(String text, Image image) {
-        this.text = new Label(text);
-        displayPicture = new ImageView(image);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(DialogBox.class.getResource("/view/DialogBox.fxml"));
+            fxmlLoader.setController(this);
+            fxmlLoader.setRoot(this);
+            fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to load DialogBox.fxml", e);
+        }
 
-        this.text.setWrapText(true);
-        this.text.setMaxWidth(Double.MAX_VALUE);
-        HBox.setHgrow(this.text, Priority.ALWAYS);
-
-        displayPicture.setFitWidth(DISPLAY_PICTURE_SIZE);
-        displayPicture.setFitHeight(DISPLAY_PICTURE_SIZE);
-        displayPicture.setPreserveRatio(true);
-
-        setAlignment(Pos.TOP_RIGHT);
-        setSpacing(10.0);
-        getChildren().addAll(this.text, displayPicture);
+        dialog.setText(text);
+        displayPicture.setImage(image);
     }
 
     /**
