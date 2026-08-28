@@ -6,10 +6,12 @@
 <?import javafx.scene.layout.Priority?>
 
 <fx:root type="HBox" alignment="TOP_RIGHT" spacing="10.0"
+         stylesheets="@/css/dialog-box.css"
          xmlns="http://javafx.com/javafx/17.0.7"
          xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label fx:id="dialog" maxWidth="Infinity" minHeight="-Infinity" wrapText="true">
+        <Label fx:id="dialog" maxWidth="Infinity" minHeight="-Infinity"
+               styleClass="chat-label" wrapText="true">
             <HBox.hgrow>
                 <Priority fx:constant="ALWAYS" />
             </HBox.hgrow>

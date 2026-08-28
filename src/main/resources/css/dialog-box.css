@@ -1,0 +1,17 @@
+.chat-label {
+    -fx-background-color: #dbeafe;
+    -fx-background-radius: 12px 12px 0 12px;
+    -fx-border-radius: 12px 12px 0 12px;
+    -fx-font-size: 14px;
+    -fx-padding: 6px;
+}
+
+.chat-label.reply-label {
+    -fx-background-color: #e5e7eb;
+    -fx-background-radius: 12px 12px 12px 0;
+    -fx-border-radius: 12px 12px 12px 0;
+}
+
+#displayPicture {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 5, 5);
+}

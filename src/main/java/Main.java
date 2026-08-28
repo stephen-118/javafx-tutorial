@@ -20,7 +20,8 @@ public class Main extends Application {
 
         Scene scene = new Scene(mainLayout);
         stage.setTitle("Duke");
-        stage.setResizable(false);
+        stage.setMinHeight(220);
+        stage.setMinWidth(417);
         stage.setScene(scene);
         stage.show();
     }
